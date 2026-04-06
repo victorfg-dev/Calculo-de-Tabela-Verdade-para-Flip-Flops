@@ -1,0 +1,44 @@
+# Este programa demonstra a tabela verdade de um flip flop, este pode ser do tipo RS, D, JK e T.
+# Declaração das variáveis: flfp (flip flop); 
+print('''\n[Cálculo da tabela verdade]
+Primeiro selecione um tipo de flip-flop:
+[1] Reset & Set (RS)
+[2] Tipo D
+[3] Jack Kilby (JK)
+[4] Tipo T\n''')
+flfp = int(input("Digite uma das opções: "))
+
+# Verificação do input.
+while True:
+    if flfp > 4 or flfp < 1:
+        print("\nEscolha inválida, tente novamente.")
+        flfp = int(input("Digite uma das opções: "))
+    else:
+        break
+
+# Cálculo da tabela verdade do flip flop RS. 
+if flfp == 1:
+    # Declaração das variáveis Reset e Set.
+    s = int(input("Defina o Set (0 ou 1): "))
+    r = int(input("Defina o Reset (0 ou 1): "))
+
+    # Invalidações. 
+    while True:
+        if s == 1 and r == 1:
+            print("\nFlip Flop inválido, Set e Reset não podem ser ativados ao mesmo tempo.")
+            s = int(input("Defina o Set (0 ou 1): "))
+            r = int(input("Defina o Reset (0 ou 1): "))
+        elif (s > 1 or s < 0) or (r > 1 or r < 0):
+            print("\nNúmeros digitados inválidos.")
+            s = int(input("Defina o Set (0 ou 1): "))
+            r = int(input("Defina o Reset (0 ou 1): "))
+        else:
+            break
+    
+    # Cálculo da tabela verdade. 
+    if s == 1 and r == 0:
+        print('''\nTabela Verdade:
+        [S] = 1
+        [R] = 0
+        [Q] = 1
+        [ÑQ] = 0''')
